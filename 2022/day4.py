@@ -1,6 +1,6 @@
 from get_data import get_data
 
-with open("../inputs/2022/day4ex.txt", "r") as f:
+with open("inputs/day4ex.txt", "r") as f:
     data = [x.strip() for x in f]
 data = get_data(2022, 4)
 

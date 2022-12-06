@@ -2,7 +2,7 @@ from get_data import get_data
 
 get_data(2022, 6)
 
-with open("../inputs/2022/day6.txt") as f:
+with open("inputs/day6.txt") as f:
     lines = f.readlines()
 
 # signal = "bvwbjplbgvbhsrlpgdmjqwftvncz"
@@ -15,7 +15,7 @@ for i in range(len(signal) - 3):
         # print(res)
         break
 
-print(res + 4)
+print("Part 1:", res + 4)
 
 for i in range(len(signal) - 13):
     # print(signal[i : i + 4])
@@ -24,4 +24,4 @@ for i in range(len(signal) - 13):
         # print(res)
         break
 
-print(res + 14)
+print("Part 2:", res + 14)

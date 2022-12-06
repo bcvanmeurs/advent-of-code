@@ -2,7 +2,7 @@ from collections import Counter
 
 from get_data import get_data
 
-# with open("../inputs/2022/day2ex.txt") as f:
+# with open("inputs/day2ex.txt") as f:
 # data = [x.strip() for x in f]
 
 data = get_data(2022, 2)

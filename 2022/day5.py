@@ -9,12 +9,12 @@ from collections import defaultdict
 
 INDEXROW = 3
 COLUMNS = 3
-with open("../inputs/2022/day5ex.txt") as f:
+with open("inputs/2022/day5ex.txt") as f:
     lines = f.readlines()
 
 INDEXROW = 8
 COLUMNS = 9
-with open("../inputs/2022/day5.txt") as f:
+with open("inputs/day5.txt") as f:
     lines = f.readlines()
 
 xslice = slice(1, COLUMNS * 4, 4)
