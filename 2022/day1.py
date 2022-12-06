@@ -16,3 +16,12 @@ for x in data:
 
 print("Part 1:", max(elfs))
 print("Part 2:", sum(sorted(elfs)[-3:]))
+
+## Alternative solution without stripping and splitting on \n
+with open("inputs/day1.txt") as f:
+    data = f.read()
+
+elves = sorted(sum(map(int, x.split("\n"))) for x in data[:-1].split("\n\n"))
+
+print(f"Part 1: {elves[-1]}")
+print(f"Part 2: {sum(elves[-3:])}")
