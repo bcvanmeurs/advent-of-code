@@ -15,6 +15,17 @@ repos:
       - id: prettier
         exclude_types: ["python"]
 
+  - repo: https://github.com/pycqa/autoflake
+    rev: v2.0.0
+    hooks:
+      - id: autoflake
+        args:
+          [
+            "--in-place",
+            "--remove-all-unused-imports",
+            "--remove-unused-variable",
+          ]
+
   - repo: https://github.com/pycqa/isort
     rev: 5.10.1
     hooks:
@@ -26,13 +37,7 @@ repos:
       - id: black-jupyter
         language_version: python3.11
 
-  - repo: https://github.com/PyCQA/autoflake
-    rev: v1.7.7
+  - repo: https://github.com/pycqa/flake8
+    rev: "6.0.0"
     hooks:
-      - id: autoflake
-        args:
-          [
-            "--in-place",
-            "--remove-all-unused-imports",
-            "--remove-unused-variable",
-          ]
+      - id: flake8

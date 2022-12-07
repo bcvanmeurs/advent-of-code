@@ -21,11 +21,11 @@ for letter, score in zip(alphabet, range(1, 53)):
 print("Part 1:", sum(scores[find_duplicate(backpack)] for backpack in data))
 
 
-def split(l):
-    for i in range(0, len(l), 3):
-        b1 = set(l[i])
-        b2 = set(l[i + 1])
-        b3 = set(l[i + 2])
+def split(backpacks):
+    for i in range(0, len(backpacks), 3):
+        b1 = set(backpacks[i])
+        b2 = set(backpacks[i + 1])
+        b3 = set(backpacks[i + 2])
         yield (b1 & b2 & b3).pop()
 
 

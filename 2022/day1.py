@@ -17,7 +17,7 @@ for x in data:
 print("Part 1:", max(elfs))
 print("Part 2:", sum(sorted(elfs)[-3:]))
 
-## Alternative solution without stripping and splitting on \n
+# Alternative solution without stripping and splitting on \n
 with open("inputs/day1.txt") as f:
     data = f.read()
 

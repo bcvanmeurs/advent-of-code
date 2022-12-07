@@ -1,11 +1,10 @@
 import re
-from collections import deque
+from collections import defaultdict, deque
 
 from get_data import get_data
 
 get_data(2022, 5)
 
-from collections import defaultdict
 
 INDEXROW = 3
 COLUMNS = 3
