@@ -1,3 +1,5 @@
+from itertools import product
+
 from get_data import get_data
 
 get_data(2022, 8)
@@ -6,42 +8,24 @@ with open("inputs/day8.txt") as f:
     lines = [[int(y) for y in x.strip()] for x in f.readlines()]
 
 
-def is_visible(line, visible) -> list[bool]:
-    _max = -1
+height = len(lines)
+width = len(lines[0])
+visible = [[False] * height for _ in range(width)]
 
-    for i, height in enumerate(line):
-        if height > _max:
-            visible[i] = True
-        _max = max(_max, height)
+for x, y in product(range(width), range(height)):
+    # trees at the boundaries are visible
+    if x == 0 or y == 0:
+        visible[y][x] = True
+    else:
+        h = lines[y][x]
+        row = lines[y]
+        column = [lines[j][x] for j in range(height)]
+        if (
+            h > max(row[0:x], default=-1)
+            or h > max(row[x + 1 :], default=-1)
+            or h > max(column[0:y], default=-1)
+            or h > max(column[y + 1 :], default=-1)
+        ):
+            visible[y][x] = True
 
-    _max = -1
-    for i, height in enumerate(reversed(line)):
-        if height > _max:
-            visible[~i] = True
-        _max = max(_max, height)
-
-    return visible
-
-
-def transpose(lines):
-    return [list(x) for x in zip(*lines)]
-
-
-visibles = []
-
-for line in lines:
-    visible = [False] * len(line)
-    visible = is_visible(line, visible)
-    visibles.append(visible)
-
-
-lines = transpose(lines)
-visibles = transpose(visibles)
-
-visibles_2 = []
-
-for line, visible in zip(lines, visibles):
-    visible = is_visible(line, visible)
-    visibles_2.append(visible)
-
-print("Part 1:", sum(sum(x) for x in visibles_2))
+print("Part 1:", sum(sum(x) for x in visible))
